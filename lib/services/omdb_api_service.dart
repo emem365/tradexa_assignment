@@ -5,6 +5,16 @@ import 'package:tradexa_assignment/services/api_key.dart';
 import 'package:tradexa_assignment/services/api_service.dart';
 
 class OMDbApiService implements ApiService {
+
+  static OMDbApiService? _instance;
+
+  static OMDbApiService get instance {
+    _instance = _instance ?? OMDbApiService._();
+    return _instance!;
+  }
+
+  OMDbApiService._();
+
   String baseUrl = 'www.omdbapi.com';
 
   @override

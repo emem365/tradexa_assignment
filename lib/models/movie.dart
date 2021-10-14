@@ -23,10 +23,6 @@ class Movie {
   String imdbVotes;
   String imdbID;
   String type;
-  String dvd;
-  String boxOffice;
-  String production;
-  String website;
   Movie({
     required this.title,
     required this.year,
@@ -48,10 +44,6 @@ class Movie {
     required this.imdbVotes,
     required this.imdbID,
     required this.type,
-    required this.dvd,
-    required this.boxOffice,
-    required this.production,
-    required this.website,
   });
 
   Movie copyWith({
@@ -75,10 +67,6 @@ class Movie {
     String? imdbVotes,
     String? imdbID,
     String? type,
-    String? dvd,
-    String? boxOffice,
-    String? production,
-    String? website,
   }) {
     return Movie(
       title: title ?? this.title,
@@ -101,10 +89,6 @@ class Movie {
       imdbVotes: imdbVotes ?? this.imdbVotes,
       imdbID: imdbID ?? this.imdbID,
       type: type ?? this.type,
-      dvd: dvd ?? this.dvd,
-      boxOffice: boxOffice ?? this.boxOffice,
-      production: production ?? this.production,
-      website: website ?? this.website,
     );
   }
 
@@ -130,10 +114,6 @@ class Movie {
       'imdbVotes': imdbVotes,
       'imdbID': imdbID,
       'Type': type,
-      'DVD': dvd,
-      'BoxOffice': boxOffice,
-      'Production': production,
-      'Website': website,
     };
   }
 
@@ -159,10 +139,6 @@ class Movie {
       imdbVotes: map['imdbVotes'],
       imdbID: map['imdbID'],
       type: map['Type'],
-      dvd: map['DVD'],
-      boxOffice: map['BoxOffice'],
-      production: map['Production'],
-      website: map['Website'],
     );
   }
 
@@ -172,7 +148,7 @@ class Movie {
 
   @override
   String toString() {
-    return 'Movie(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, ratings: $ratings, metascore: $metascore, imdbRating: $imdbRating, imdbVotes: $imdbVotes, imdbID: $imdbID, type: $type, dvd: $dvd, boxOffice: $boxOffice, production: $production, website: $website)';
+    return 'Movie(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, ratings: $ratings, metascore: $metascore, imdbRating: $imdbRating, imdbVotes: $imdbVotes, imdbID: $imdbID, type: $type)';
   }
 
   @override
@@ -199,11 +175,7 @@ class Movie {
       other.imdbRating == imdbRating &&
       other.imdbVotes == imdbVotes &&
       other.imdbID == imdbID &&
-      other.type == type &&
-      other.dvd == dvd &&
-      other.boxOffice == boxOffice &&
-      other.production == production &&
-      other.website == website;
+      other.type == type;
   }
 
   @override
@@ -227,10 +199,6 @@ class Movie {
       imdbRating.hashCode ^
       imdbVotes.hashCode ^
       imdbID.hashCode ^
-      type.hashCode ^
-      dvd.hashCode ^
-      boxOffice.hashCode ^
-      production.hashCode ^
-      website.hashCode;
+      type.hashCode;
   }
 }
