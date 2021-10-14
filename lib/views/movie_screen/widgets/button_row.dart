@@ -11,15 +11,21 @@ class ButtonRow extends StatelessWidget {
       children: [
         CustomIconButton(
             icon: const Icon(Icons.arrow_downward),
-            onTap: () {},
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Download is unimplmented')));
+            },
             color: Theme.of(context).colorScheme.primaryVariant),
         CustomIconButton(
             icon: const Icon(Icons.favorite_border),
-            onTap: () {},
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Favorite is unimplmented')));
+            },
             color: Theme.of(context).colorScheme.primaryVariant),
         CustomIconButton(
             icon: const Icon(Icons.share),
-            onTap: () {},
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Share is unimplmented')));
+            },
             color: Theme.of(context).colorScheme.primaryVariant),
       ],
     );

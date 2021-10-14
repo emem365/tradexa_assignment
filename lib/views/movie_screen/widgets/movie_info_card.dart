@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tradexa_assignment/models/movie.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tradexa_assignment/controllers/providers.dart';
 import 'package:tradexa_assignment/views/movie_screen/widgets/custom_card.dart';
 
-class MovieInfoCard extends StatelessWidget {
-  final Movie movie;
-  const MovieInfoCard({Key? key, required this.movie}) : super(key: key);
+class MovieInfoCard extends ConsumerWidget {
+  const MovieInfoCard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
+    final movie = watch(movieScreenProvider);
     return CustomCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

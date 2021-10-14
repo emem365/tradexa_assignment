@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:tradexa_assignment/models/movie.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tradexa_assignment/controllers/providers.dart';
 import 'package:tradexa_assignment/views/movie_screen/widgets/custom_card.dart';
 
-class RatingsCard extends StatelessWidget {
-  final Movie movie;
-  const RatingsCard({Key? key, required this.movie}) : super(key: key);
+class RatingsCard extends ConsumerWidget {
+  const RatingsCard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
+    final movie = watch(movieScreenProvider);
     final rating = double.parse(movie.imdbRating);
     return CustomCard(
       child: Column(

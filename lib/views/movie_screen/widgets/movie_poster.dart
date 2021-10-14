@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tradexa_assignment/models/movie.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tradexa_assignment/controllers/providers.dart';
 import 'package:tradexa_assignment/views/movie_screen/widgets/custom_icon_button.dart';
 import 'package:tradexa_assignment/views/movie_screen/widgets/image_background.dart';
 
-class MoviePoster extends StatelessWidget {
-  final Movie movie;
-  const MoviePoster({Key? key, required this.movie}) : super(key: key);
+class MoviePoster extends ConsumerWidget {
+  const MoviePoster({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
+    final movie = watch(movieScreenProvider);
     return Stack(
       children: [
         ImageBackground(imageUrl: movie.poster),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tradexa_assignment/models/movie.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tradexa_assignment/controllers/providers.dart';
 import 'package:tradexa_assignment/views/movie_screen/widgets/custom_card.dart';
 
-class MetadataCard extends StatelessWidget {
-  final Movie movie;
-  const MetadataCard({Key? key, required this.movie}) : super(key: key);
+class MetadataCard extends ConsumerWidget {
+  const MetadataCard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
+    final movie = watch(movieScreenProvider);
     return CustomCard(
         child: Column(
       children: [
@@ -19,12 +20,14 @@ class MetadataCard extends StatelessWidget {
                 Icons.calendar_today,
                 color: Theme.of(context).colorScheme.secondary,
               ),
-              Text(
-                '  ${movie.year}',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(fontSize: 20, color: Colors.white70),
+              Expanded(
+                child: Text(
+                  '  ${movie.year}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(fontSize: 20, color: Colors.white70),
+                ),
               )
             ],
           ),
@@ -37,12 +40,14 @@ class MetadataCard extends StatelessWidget {
                 Icons.public,
                 color: Theme.of(context).colorScheme.secondary,
               ),
-              Text(
-                '  ${movie.country}',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(fontSize: 20, color: Colors.white70),
+              Expanded(
+                child: Text(
+                  '  ${movie.country}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(fontSize: 20, color: Colors.white70),
+                ),
               )
             ],
           ),
@@ -55,12 +60,14 @@ class MetadataCard extends StatelessWidget {
                 Icons.access_time_sharp,
                 color: Theme.of(context).colorScheme.secondary,
               ),
-              Text(
-                '  ${movie.runtime}',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(fontSize: 20, color: Colors.white70),
+              Expanded(
+                child: Text(
+                  '  ${movie.runtime}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(fontSize: 20, color: Colors.white70),
+                ),
               )
             ],
           ),
@@ -73,12 +80,14 @@ class MetadataCard extends StatelessWidget {
                 Icons.volume_up,
                 color: Theme.of(context).colorScheme.secondary,
               ),
-              Text(
-                '  ${movie.language}',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(fontSize: 20, color: Colors.white70),
+              Expanded(
+                child: Text(
+                  '  ${movie.language}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(fontSize: 20, color: Colors.white70),
+                ),
               )
             ],
           ),

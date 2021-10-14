@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:tradexa_assignment/models/search_result_movie.dart';
+import 'package:tradexa_assignment/models/movie.dart';
 
 class SearchResponse {
-  List<SearchResultMovie> results;
+  List<Movie> results;
   int totalResults;
   SearchResponse({
     required this.results,
@@ -11,7 +11,7 @@ class SearchResponse {
   });
 
   SearchResponse copyWith({
-    List<SearchResultMovie>? results,
+    List<Movie>? results,
     int? totalResults,
   }) {
     return SearchResponse(
@@ -22,14 +22,14 @@ class SearchResponse {
 
   Map<String, dynamic> toMap() {
     return {
-      'Search': results.map((x) => x.toMap()).toList(),
+      'results': results.map((x) => x.toMap()).toList(),
       'totalResults': totalResults,
     };
   }
 
   factory SearchResponse.fromMap(Map<String, dynamic> map) {
     return SearchResponse(
-      results: List<SearchResultMovie>.from(map['Search']?.map((x) => SearchResultMovie.fromMap(x))),
+      results: List<Movie>.from(map['results']?.map((x) => Movie.fromMap(x))),
       totalResults: int.parse(map['totalResults']),
     );
   }
